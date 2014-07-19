@@ -13,6 +13,7 @@
 		4CD80C92197B035D00B0DD2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD80C90197B035D00B0DD2B /* Main.storyboard */; };
 		4CD80C94197B035D00B0DD2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD80C93197B035D00B0DD2B /* Images.xcassets */; };
 		4CD80CA0197B035E00B0DD2B /* ClockworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80C9F197B035E00B0DD2B /* ClockworkTests.swift */; };
+		4CD80CAC197B1B5E00B0DD2B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80CAB197B1B5E00B0DD2B /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4CD80C99197B035E00B0DD2B /* ClockworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClockworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD80C9E197B035E00B0DD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD80C9F197B035E00B0DD2B /* ClockworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockworkTests.swift; sourceTree = "<group>"; };
+		4CD80CAB197B1B5E00B0DD2B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				4CD80C8C197B035D00B0DD2B /* FirstViewController.swift */,
 				4CD80C8E197B035D00B0DD2B /* SecondViewController.swift */,
 				4CD80C90197B035D00B0DD2B /* Main.storyboard */,
+				4CD80CAB197B1B5E00B0DD2B /* Task.swift */,
 				4CD80C93197B035D00B0DD2B /* Images.xcassets */,
 				4CD80C88197B035D00B0DD2B /* Supporting Files */,
 			);
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD80CAC197B1B5E00B0DD2B /* Task.swift in Sources */,
 				4CD80C8F197B035D00B0DD2B /* SecondViewController.swift in Sources */,
 				4CD80C8B197B035D00B0DD2B /* AppDelegate.swift in Sources */,
 				4CD80C8D197B035D00B0DD2B /* FirstViewController.swift in Sources */,
@@ -399,6 +403,7 @@
 				4CD80CA5197B035E00B0DD2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CD80CA6197B035E00B0DD2B /* Build configuration list for PBXNativeTarget "ClockworkTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +412,7 @@
 				4CD80CA8197B035E00B0DD2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
