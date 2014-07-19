@@ -7,19 +7,33 @@
 //
 
 import Foundation
+import UIKit
+import EventKit
+import EventKitUI
 
 class Task {
     enum Priority {
         case Low, Medium, High
     }
     
-    let createdAt: NSDate = NSDate.date()
+    enum Color: Int {
+        case Gray, Blue, Green, Yellow, Orange, Red
+    }
+    
+    // Properties
     var name: String
-    var location: String
-    var date: NSDate
-    var starttime: NSDate
-    var endtime: NSDate
+    var events: [EKEvent] // array of all allocated chunks of time
+    /* contains properties for:
+        title
+        startDate and endDate
+        associated calendar
+        alarms
+        recurrenceRules */
+    
+    var location: [MKMapItem]
+    var color: Color
     var priority: Priority
     var duration: NSTimeInterval
+    var chunkable: Bool
     
 }

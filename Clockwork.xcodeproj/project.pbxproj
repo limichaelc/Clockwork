@@ -14,6 +14,10 @@
 		4CD80C94197B035D00B0DD2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD80C93197B035D00B0DD2B /* Images.xcassets */; };
 		4CD80CA0197B035E00B0DD2B /* ClockworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80C9F197B035E00B0DD2B /* ClockworkTests.swift */; };
 		4CD80CAC197B1B5E00B0DD2B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80CAB197B1B5E00B0DD2B /* Task.swift */; };
+		4CD80CAF197B220200B0DD2B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD80CAD197B220200B0DD2B /* EventKit.framework */; };
+		4CD80CB0197B220200B0DD2B /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD80CAE197B220200B0DD2B /* EventKitUI.framework */; };
+		4CD80CB2197B224400B0DD2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD80CB1197B224400B0DD2B /* UIKit.framework */; };
+		4CD80CB5197B26EC00B0DD2B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD80CB4197B26EC00B0DD2B /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,11 @@
 		4CD80C9E197B035E00B0DD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD80C9F197B035E00B0DD2B /* ClockworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockworkTests.swift; sourceTree = "<group>"; };
 		4CD80CAB197B1B5E00B0DD2B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4CD80CAD197B220200B0DD2B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		4CD80CAE197B220200B0DD2B /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		4CD80CB1197B224400B0DD2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4CD80CB3197B230700B0DD2B /* Clockwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Clockwork.entitlements; sourceTree = "<group>"; };
+		4CD80CB4197B26EC00B0DD2B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +54,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD80CB2197B224400B0DD2B /* UIKit.framework in Frameworks */,
+				4CD80CAF197B220200B0DD2B /* EventKit.framework in Frameworks */,
+				4CD80CB5197B26EC00B0DD2B /* MapKit.framework in Frameworks */,
+				4CD80CB0197B220200B0DD2B /* EventKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,10 @@
 		4CD80C7C197B035D00B0DD2B = {
 			isa = PBXGroup;
 			children = (
+				4CD80CB4197B26EC00B0DD2B /* MapKit.framework */,
+				4CD80CB1197B224400B0DD2B /* UIKit.framework */,
+				4CD80CAD197B220200B0DD2B /* EventKit.framework */,
+				4CD80CAE197B220200B0DD2B /* EventKitUI.framework */,
 				4CD80C87197B035D00B0DD2B /* Clockwork */,
 				4CD80C9C197B035E00B0DD2B /* ClockworkTests */,
 				4CD80C86197B035D00B0DD2B /* Products */,
@@ -79,6 +96,7 @@
 		4CD80C87197B035D00B0DD2B /* Clockwork */ = {
 			isa = PBXGroup;
 			children = (
+				4CD80CB3197B230700B0DD2B /* Clockwork.entitlements */,
 				4CD80C8A197B035D00B0DD2B /* AppDelegate.swift */,
 				4CD80C8C197B035D00B0DD2B /* FirstViewController.swift */,
 				4CD80C8E197B035D00B0DD2B /* SecondViewController.swift */,
@@ -164,6 +182,15 @@
 				TargetAttributes = {
 					4CD80C84197B035D00B0DD2B = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 68AUF6FQW6;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					4CD80C98197B035E00B0DD2B = {
 						CreatedOnToolsVersion = 6.0;
@@ -333,9 +360,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Clockwork/Clockwork.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Clockwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -344,9 +375,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Clockwork/Clockwork.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Clockwork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
