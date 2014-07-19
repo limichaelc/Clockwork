@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AB37418197B204C00CAFA0F /* MainTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB37417197B204C00CAFA0F /* MainTableViewDelegate.swift */; };
+		4AB3741A197B218000CAFA0F /* MainTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB37419197B218000CAFA0F /* MainTableDataSource.swift */; };
 		4CD80C8B197B035D00B0DD2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80C8A197B035D00B0DD2B /* AppDelegate.swift */; };
 		4CD80C8D197B035D00B0DD2B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80C8C197B035D00B0DD2B /* FirstViewController.swift */; };
 		4CD80C8F197B035D00B0DD2B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD80C8E197B035D00B0DD2B /* SecondViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AB37417197B204C00CAFA0F /* MainTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewDelegate.swift; sourceTree = "<group>"; };
+		4AB37419197B218000CAFA0F /* MainTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableDataSource.swift; sourceTree = "<group>"; };
 		4CD80C85197B035D00B0DD2B /* Clockwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clockwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD80C89197B035D00B0DD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD80C8A197B035D00B0DD2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,12 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				4CD80C8A197B035D00B0DD2B /* AppDelegate.swift */,
+				4AB37417197B204C00CAFA0F /* MainTableViewDelegate.swift */,
 				4CD80C8C197B035D00B0DD2B /* FirstViewController.swift */,
 				4CD80C8E197B035D00B0DD2B /* SecondViewController.swift */,
 				4CD80C90197B035D00B0DD2B /* Main.storyboard */,
 				4CD80CAB197B1B5E00B0DD2B /* Task.swift */,
 				4CD80C93197B035D00B0DD2B /* Images.xcassets */,
 				4CD80C88197B035D00B0DD2B /* Supporting Files */,
+				4AB37419197B218000CAFA0F /* MainTableDataSource.swift */,
 			);
 			path = Clockwork;
 			sourceTree = "<group>";
@@ -217,6 +223,8 @@
 				4CD80CAC197B1B5E00B0DD2B /* Task.swift in Sources */,
 				4CD80C8F197B035D00B0DD2B /* SecondViewController.swift in Sources */,
 				4CD80C8B197B035D00B0DD2B /* AppDelegate.swift in Sources */,
+				4AB37418197B204C00CAFA0F /* MainTableViewDelegate.swift in Sources */,
+				4AB3741A197B218000CAFA0F /* MainTableDataSource.swift in Sources */,
 				4CD80C8D197B035D00B0DD2B /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

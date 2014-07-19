@@ -9,5 +9,10 @@
 import UIKit
 
 class FirstViewController: UITableView {
+    init(frame: CGRect, style: UITableViewStyle) {
+        super.init(frame: frame, style: style)
+        self.dataSource = MainTableDataSource()
+        self.delegate = MainTableViewDelegate()
+    }
 }
 
