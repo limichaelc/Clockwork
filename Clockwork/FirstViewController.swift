@@ -8,18 +8,11 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
-                            
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+class FirstViewController: UITableView {
+    init(frame: CGRect, style: UITableViewStyle) {
+        super.init(frame: frame, style: style)
+        self.dataSource = MainTableDataSource()
+        self.delegate = MainTableViewDelegate()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
