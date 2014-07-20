@@ -9,11 +9,11 @@
 import UIKit
 
 class MainTableCell : UITableViewCell {
-    @IBOutlet var dateLabel: UILabel;
-    @IBOutlet var eventLabel: UILabel;
+    @IBOutlet var dateLabel: UILabel
+    @IBOutlet var eventLabel: UILabel
     
     init(style: UITableViewCellStyle, reuseIdentifier: String!) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier);
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     func prepare() {

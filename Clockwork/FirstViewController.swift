@@ -10,15 +10,15 @@ import UIKit
 
 class FirstViewController: UITableViewController {
     init(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)
     }
     
     init(style: UITableViewStyle) {
-        super.init(style: style);
+        super.init(style: style)
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -27,8 +27,12 @@ class FirstViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         //TODO: actually reuse
-        var cell = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath) as MainTableCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("maincell") as UITableViewCell
         return cell
+    }
+    
+    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 

@@ -20,6 +20,9 @@ import EventKitUI
 import MapKit
 
 class Item {
+    class func createAndStoreItemFromEvent(event: EKEvent) {
+    
+    }
     enum Priority {
         case Low, Medium, High
     }

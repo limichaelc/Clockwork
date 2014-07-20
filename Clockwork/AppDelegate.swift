@@ -7,15 +7,30 @@
 //
 
 import UIKit
+import EventKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
-
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
         // Override point for customization after application launch.
+        if !NSUserDefaults.standardUserDefaults().objectForKey(UserDefaultsConstants.acceptedStartupCalendarPermissionKey) {
+            var eventStore = EKEventStore()
+            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {(granted: Bool, error: NSError?) in
+                if error {
+                    return
+                }
+                NSUserDefaults.standardUserDefaults().setBool(granted, forKey: UserDefaultsConstants.acceptedStartupCalendarPermissionKey)
+                if granted {
+                    var events: NSArray = eventStore.eventsMatchingPredicate(NSPredicate(value: true))
+                    for event in events {
+                        Item.createAndStoreItemFromEvent(event as EKEvent)
+                    }
+                }
+            });
+        }
         return true
     }
 
