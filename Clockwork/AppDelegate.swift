@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     func importCalendar() {
-        if NSUserDefaults.standardUserDefaults().objectForKey(UserDefaultsConstants.acceptedStartupCalendarPermissionKey) {
+        let res: NSObject? = NSUserDefaults.standardUserDefaults().objectForKey(UserDefaultsConstants.acceptedStartupCalendarPermissionKey) as? NSObject
+        if res && res! == false {
+            // if a value has been set and the permission was denied initially
             return
         }
         var eventStore = EKEventStore()
@@ -37,10 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 end.year = 1
                 let startDate = calendar.dateByAddingComponents(start, toDate: NSDate(), options: nil)
                 let endDate = calendar.dateByAddingComponents(end, toDate: NSDate(), options: nil)
-                eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
-                var events: NSArray = eventStore.eventsMatchingPredicate(NSPredicate(value: true))
-                for event in events {
-                    Item.createAndStoreItemFromEvent(event as EKEvent)
+                let pred = eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
+                var events: NSArray? = eventStore.eventsMatchingPredicate(pred)
+                if events {
+                    for event in events! {
+                        Item.createAndStoreItemFromEvent(event as EKEvent)
+                    }
                 }
             }
         })
