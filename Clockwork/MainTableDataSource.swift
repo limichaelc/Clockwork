@@ -10,16 +10,15 @@ import UIKit
 
 class MainTableDataSource : NSObject, UITableViewDataSource {
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        println("1")
         return 2
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell: AnyObject? = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath);
+        var cell: AnyObject? = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath)
         if !cell {
-            cell = MainTableCell(style: UITableViewCellStyle.Default, reuseIdentifier: "maincell");
+            cell = MainTableCell(style: .Default, reuseIdentifier: "maincell")
         }
-        return cell as UITableViewCell;
+        return cell as UITableViewCell
     }
     
 }

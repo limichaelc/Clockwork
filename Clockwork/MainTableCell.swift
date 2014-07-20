@@ -14,7 +14,10 @@ class MainTableCell : UITableViewCell {
     
     init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier);
-        dateLabel.text = "9/11";
-        eventLabel.text = "Sample text";
+    }
+    
+    override func prepareForReuse()  {
+        dateLabel.text = "9/11"
+        eventLabel.text = "sample text"
     }
 }

@@ -48,7 +48,7 @@ class Task {
         self.color = color
         self.toSplit = toSplit
         self.priority = priority
-        duration = endDate.timeIntervalSinceDate(startDate)
+        //duration = endDate.timeIntervalSinceDate(startDate)
         self.location = location
     }
 }

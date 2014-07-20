@@ -9,6 +9,9 @@
 import UIKit
 
 class FirstViewController: UITableViewController {
+    var mdelegate: UITableViewDelegate = MainTableViewDelegate()
+    var mdatasource: UITableViewDataSource = MainTableDataSource()
+    
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder);
     }
@@ -19,8 +22,9 @@ class FirstViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.dataSource = MainTableDataSource()
-        self.tableView.delegate = MainTableViewDelegate()
+        self.tableView.dataSource = mdatasource
+        self.tableView.delegate = mdelegate
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 }
 
