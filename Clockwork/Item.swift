@@ -20,7 +20,7 @@ import EventKitUI
 import MapKit
 
 class Item {
-    /*enum Priority {
+    enum Priority {
         case Low, Medium, High
     }
     
@@ -57,7 +57,7 @@ class Item {
         self.name = name
         self.color = color
         self.toSplit = false
-        self.priority = Item.Priority.Medium
+        self.priority = Priority.Medium
         self.duration = endDate.timeIntervalSinceDate(startDate)
         self.location = location
         self.deadline = deadline
@@ -76,5 +76,5 @@ class Item {
         self.deadline = deadline
         self.location = location
         self.notes = notes
-    }*/
+    }
 }
