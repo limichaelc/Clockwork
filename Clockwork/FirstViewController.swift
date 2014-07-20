@@ -27,7 +27,8 @@ class FirstViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         //TODO: actually reuse
-        return MainTableCell(style: .Default, reuseIdentifier: "maincell")
+        var cell = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath) as MainTableCell
+        return cell
     }
 }
 
