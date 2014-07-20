@@ -20,7 +20,7 @@ import EventKitUI
 import MapKit
 
 class Item {
-    enum Priority {
+    /*enum Priority {
         case Low, Medium, High
     }
     
@@ -42,8 +42,8 @@ class Item {
     var duration: NSTimeInterval?
     var location: MKMapItem?
     var deadline: NSDate
-    weak var doBefore: Task?
-    weak var doAfter: Task?
+    weak var doBefore: Item?
+    weak var doAfter: Item?
     var notes: String
     var recurrenceRules: EKRecurrenceRule?
     
@@ -57,7 +57,7 @@ class Item {
         self.name = name
         self.color = color
         self.toSplit = false
-        self.priority = .Medium
+        self.priority = Item.Priority.Medium
         self.duration = endDate.timeIntervalSinceDate(startDate)
         self.location = location
         self.notes = notes
@@ -75,5 +75,5 @@ class Item {
         self.deadline = deadline
         self.location = location
         self.notes = notes
-    }
+    }*/
 }

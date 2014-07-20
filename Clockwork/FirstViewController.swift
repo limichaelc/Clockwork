@@ -19,7 +19,6 @@ class FirstViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -27,12 +26,8 @@ class FirstViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        var cell: AnyObject? = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath)
-        if !cell {
-            cell = MainTableCell(style: .Default, reuseIdentifier: "maincell")
-        }
-        (cell as MainTableCell).prepare()
-        return cell as UITableViewCell
+        //TODO: actually reuse
+        return MainTableCell(style: .Default, reuseIdentifier: "maincell")
     }
 }
 
