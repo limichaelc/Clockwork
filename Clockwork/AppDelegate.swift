@@ -11,7 +11,6 @@ import EventKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
     var window: UIWindow?
 
     func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
@@ -20,16 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var eventStore = EKEventStore()
             eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {(granted: Bool, error: NSError?) in
                 if error {
+                    println(error)
                     return
                 }
                 NSUserDefaults.standardUserDefaults().setBool(granted, forKey: UserDefaultsConstants.acceptedStartupCalendarPermissionKey)
                 if granted {
+                    let calendar = NSCalendar.currentCalendar()
+                    let start = NSDateComponents()
+                    let end = NSDateComponents()
+                    start.year = -1
+                    end.year = 1
+                    let startDate = calendar.dateByAddingComponents(start, toDate: NSDate(), options: nil)
+                    let endDate = calendar.dateByAddingComponents(end, toDate: NSDate(), options: nil)
+                    eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
                     var events: NSArray = eventStore.eventsMatchingPredicate(NSPredicate(value: true))
                     for event in events {
                         Item.createAndStoreItemFromEvent(event as EKEvent)
                     }
                 }
-            });
+            })
         }
         return true
     }
