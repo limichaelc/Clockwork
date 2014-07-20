@@ -9,9 +9,6 @@
 import UIKit
 
 class FirstViewController: UITableViewController {
-    var mdelegate: UITableViewDelegate = MainTableViewDelegate()
-    var mdatasource: UITableViewDataSource = MainTableDataSource()
-    
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder);
     }
@@ -22,9 +19,20 @@ class FirstViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.dataSource = mdatasource
-        self.tableView.delegate = mdelegate
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+    }
+    
+    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        var cell: AnyObject? = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath)
+        if !cell {
+            cell = MainTableCell(style: .Default, reuseIdentifier: "maincell")
+        }
+        (cell as MainTableCell).prepare()
+        return cell as UITableViewCell
     }
 }
 

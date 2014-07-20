@@ -39,8 +39,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="aqT-qr-Nim" id="fXO-mY-I26"/>
-                            <outlet property="delegate" destination="aqT-qr-Nim" id="BBP-Ay-8GL"/>
+                            <outlet property="dataSource" destination="aqT-qr-Nim" id="WMq-7Z-vz9"/>
+                            <outlet property="delegate" destination="aqT-qr-Nim" id="Tyi-tR-lbl"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="Xah-Ya-hg5"/>

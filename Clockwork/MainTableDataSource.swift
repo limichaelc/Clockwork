@@ -17,6 +17,7 @@ class MainTableDataSource : NSObject, UITableViewDataSource {
         var cell: AnyObject? = tableView.dequeueReusableCellWithIdentifier("maincell", forIndexPath: indexPath)
         if !cell {
             cell = MainTableCell(style: .Default, reuseIdentifier: "maincell")
+            (cell as MainTableCell).prepare()
         }
         return cell as UITableViewCell
     }
