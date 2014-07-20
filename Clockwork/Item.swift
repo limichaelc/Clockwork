@@ -19,10 +19,11 @@ import EventKit
 import EventKitUI
 import MapKit
 
-class Item {
-    class func createAndStoreItemFromEvent(event: EKEvent) {
-    
-    }
+enum ItemType {
+    case Task, Event
+}
+
+class Item: NSObject {
     enum Priority {
         case Low, Medium, High
     }
@@ -31,19 +32,19 @@ class Item {
         case Gray, Blue, Green, Yellow, Orange, Red
     }
     
-    enum ItemType {
-        case Task, Event
-    }
-    
     // Properties
     let type: ItemType
-    let dateSet: NSDate // automatically set
+    let dateSet: NSDate? // automatically set
     var name: String
+    var category: String
     var color: Color
-    var toSplit: Bool?
+    var isSplitable: Bool?
     var priority: Priority?
+    var bufferTime: NSTimeInterval?
     var duration: NSTimeInterval?
     var location: MKMapItem?
+    var startDate: NSDate?
+    var endDate: NSDate?
     var deadline: NSDate
     weak var doBefore: Item?
     weak var doAfter: Item?
@@ -52,32 +53,21 @@ class Item {
     
     var events: [EKEvent] = [EKEvent]() // list of calendar events generated from above properties
     
-    
-    // Event: given a start and end date (no priority or duration)
-    init(name: String, color: Color, startDate: NSDate, endDate: NSDate, location: MKMapItem, deadline: NSDate, notes: String) {
-        self.type = .Event
-        self.dateSet = NSDate.date()
-        self.name = name
-        self.color = color
-        self.toSplit = false
-        self.priority = Priority.Medium
-        self.duration = endDate.timeIntervalSinceDate(startDate)
-        self.location = location
-        self.deadline = deadline
-        self.notes = notes
-    }
-    
-    // Item: given a priority and duration (no start or end date)
-    init(name: String, color: Color, toSplit: Bool, priority: Priority, duration: NSTimeInterval, deadline: NSDate, location: MKMapItem, notes: String) {
-        self.type = .Task
-        self.dateSet = NSDate.date()
-        self.name = name
-        self.color = color
-        self.toSplit = toSplit
-        self.priority = priority
-        self.duration = duration
-        self.deadline = deadline
-        self.location = location
-        self.notes = notes
+    init(type: ItemType, name: String, color: Color, startDate: NSDate, endDate: NSDate, isSplitable: Bool = false, priority: Priority, duration: NSTimeInterval, location: MKMapItem, deadline: NSDate, notes: String) {
+        super.init()
+        if self != nil {
+            self.type = type
+            self.dateSet = NSDate()
+            self.name = name
+            self.color = color
+            self.startDate = startDate
+            self.endDate = endDate
+            self.isSplitable = isSplitable
+            self.priority = priority
+            self.duration = endDate.timeIntervalSinceDate(startDate)
+            self.location = location
+            self.deadline = deadline
+            self.notes = notes
+        }
     }
 }
