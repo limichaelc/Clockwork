@@ -42,8 +42,8 @@ class Item {
     var duration: NSTimeInterval?
     var location: MKMapItem?
     var deadline: NSDate
-    weak var doBefore: Task?
-    weak var doAfter: Task?
+    weak var doBefore: Item?
+    weak var doAfter: Item?
     var notes: String
     var recurrenceRules: EKRecurrenceRule?
     
@@ -51,20 +51,21 @@ class Item {
     
     
     // Event: given a start and end date (no priority or duration)
-    init(name: String, color: Color, startDate: NSDate, endDate: NSDate, location: MKMapItem, notes: String) {
+    init(name: String, color: Color, startDate: NSDate, endDate: NSDate, location: MKMapItem, deadline: NSDate, notes: String) {
         self.type = .Event
         self.dateSet = NSDate.date()
         self.name = name
         self.color = color
         self.toSplit = false
-        self.priority = .Medium
+        self.priority = Priority.Medium
         self.duration = endDate.timeIntervalSinceDate(startDate)
         self.location = location
+        self.deadline = deadline
         self.notes = notes
     }
     
     // Item: given a priority and duration (no start or end date)
-    init(name: String, color: Color, toSplit: Bool, priority: Priority, duration: NSTimeInterval, deadline: NSDate, location: MKMapItem) {
+    init(name: String, color: Color, toSplit: Bool, priority: Priority, duration: NSTimeInterval, deadline: NSDate, location: MKMapItem, notes: String) {
         self.type = .Task
         self.dateSet = NSDate.date()
         self.name = name
