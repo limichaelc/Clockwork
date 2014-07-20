@@ -8,11 +8,19 @@
 
 import UIKit
 
-class FirstViewController: UITableView {
-    init(frame: CGRect, style: UITableViewStyle) {
-        super.init(frame: frame, style: style)
-        self.dataSource = MainTableDataSource()
-        self.delegate = MainTableViewDelegate()
+class FirstViewController: UITableViewController {
+    init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder);
+    }
+    
+    init(style: UITableViewStyle) {
+        super.init(style: style);
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        self.tableView.dataSource = MainTableDataSource()
+        self.tableView.delegate = MainTableViewDelegate()
     }
 }
 
